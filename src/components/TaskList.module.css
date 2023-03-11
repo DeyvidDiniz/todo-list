@@ -1,0 +1,58 @@
+.taskList{
+    max-width:750px;
+    margin:4rem auto;
+    max-width:50rem;
+
+    color:white;
+}
+
+.taskCount{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.taskTotal{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+
+    color:var(--blue);
+    font-weight:700;
+    font-size:0.875rem;
+
+}
+
+.taskTotalValue{
+    background:var(--gray-400);
+    padding:5px 6px;
+    border-radius:50%;
+
+
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--gray-100);
+}
+
+.taskDone{
+    display:flex; 
+    align-items:center;
+    padding:10px;
+    gap:0.5rem;
+
+    color:var(--purple);
+    font-weight:700;
+    font-size:0.875rem;
+}
+
+.taskDoneValue{
+    background:var(--gray-400);
+    padding:3px 8px;
+    border-radius:10px;
+
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--gray-100);
+}
+

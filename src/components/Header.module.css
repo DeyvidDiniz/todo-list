@@ -1,0 +1,10 @@
+.container{
+    background:var(--gray-700);
+    width:100%;
+    height:12.5rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:var(--gray-100);
+}

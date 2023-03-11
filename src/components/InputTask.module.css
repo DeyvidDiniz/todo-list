@@ -1,0 +1,58 @@
+.inputTask{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    max-width:50rem;
+    margin:0 auto;
+    margin-top:-1.5rem;
+    
+}
+.formTask{
+    display:flex;
+    width:100%;
+}
+.formTask form{
+}
+.formTask input{
+    height:3.375rem;
+    width:100%;
+    padding:1rem;
+
+    border:1px solid var(--gray-700);
+    border:none;
+    border-radius:8px;
+    outline:none;
+
+    background:var(--gray-500);
+    color:var(--gray-100);
+
+}
+
+.formTask button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:0.5rem;
+
+    width:5.625rem;
+    height:3.375rem;
+    margin-left:.5rem;
+
+    text-align:center;
+    
+    border-radius:8px;
+    border:none;
+
+    background:var(--blueDark);
+    color:var(--white);
+    font-size:0.875rem;
+    font-weight: 700;
+
+    transition:background-color .2s
+}
+
+.formTask button:hover{
+    background:var(--blue);
+    cursor:pointer;
+}
