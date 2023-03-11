@@ -26,8 +26,14 @@
 
     background:var(--gray-500);
     color:var(--gray-100);
-
+    font-size:1rem;
 }
+
+.formTask input::placeholder{
+    color:var(--gray-300);
+    font-size:1rem;
+}
+
 
 .formTask button{
     display:flex;
