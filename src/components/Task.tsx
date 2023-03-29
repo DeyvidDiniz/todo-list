@@ -7,13 +7,23 @@ interface TaskProps{
     content:string;
     checked:boolean;
     onDeleteTask:(task:number) => void;
+    onTaskChanged:(id:number, checked:boolean) => void;
 }
 
 
-export function Task({id, content, checked, onDeleteTask}: TaskProps){
+export function Task({id, content, checked, onDeleteTask, onTaskChanged}: TaskProps){
 
     function HandleDeleteTask(){
         onDeleteTask(id);
+    }
+
+    function handleVerifyChecked(){
+        if(checked == false){
+            checked = true;
+        }else{
+            checked =false;
+        }
+        onTaskChanged(id, checked);
     }
 
     
@@ -24,7 +34,9 @@ export function Task({id, content, checked, onDeleteTask}: TaskProps){
             <div className={style.task}>
                 <div className={style.taskContainer}>
                     <label>
-                        <input type="checkbox" /> 
+                        <input type="checkbox"
+                         onChange={handleVerifyChecked}
+                         /> 
                         <span></span>
                         <p>{content}</p>
                     </label>

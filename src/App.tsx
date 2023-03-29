@@ -7,7 +7,7 @@ import { TaskList } from './components/TaskList'
 export function App() {
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header/>
       <TaskList/>
     </div>

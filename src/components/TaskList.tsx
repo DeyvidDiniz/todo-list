@@ -36,6 +36,8 @@ export function TaskList(){
 
     const [idTaks, setIdTaks] = useState(4);
 
+    const[countTaksDone, setCountTaksDone] = useState(0);
+
 
 
     function handleCreateNewTask(){
@@ -64,6 +66,38 @@ export function TaskList(){
         })
         setTasks(tasksWithoutDeleteOne);
         setCountTasks(countTaks - 1);
+
+        const taskWillbeDeleted = tasks.filter(task =>{
+            return task.id == taskToDelete;
+        })
+
+        if(taskWillbeDeleted[0].checked){
+            setCountTaksDone(countTaksDone -1)
+        }
+        
+    }
+
+
+
+    function TaskChanged(taskToChangeChecked:number, newValueOfCheked:boolean){
+
+        /* Pega o index do elemento baseado no id retornado */
+        const taksToChangeIndex = tasks.findIndex((task) =>{
+                return task.id == taskToChangeChecked;
+        })
+
+        //Cria uma constante com todas as tasks existentes
+        const AllTasks =  [...tasks];
+
+        //altera o valor do objeto para o novo
+        AllTasks[taksToChangeIndex].checked = newValueOfCheked;
+
+        //Atualiza o estado com o novo valor
+        setTasks(AllTasks);
+
+        //Adiciona ou remove do contador de tarefas feitas
+        newValueOfCheked ? setCountTaksDone(countTaksDone + 1 ) : setCountTaksDone(countTaksDone - 1 ) ;
+
     }
 
 
@@ -71,7 +105,7 @@ export function TaskList(){
     
     return(
 
-    <div>
+    <div className={style.container}>
 
         <div className={style.inputTask}>
             <form 
@@ -101,7 +135,7 @@ export function TaskList(){
                 </div>
                 <div className={style.taskDone}>
                     <p>Concluídas</p>
-                    <span className={style.taskDoneValue}>2 de {countTaks}</span>
+                    <span className={style.taskDoneValue}>{countTaksDone} de {countTaks}</span>
                 </div>
             </div>
 
@@ -113,6 +147,7 @@ export function TaskList(){
                         content={task.content}
                         checked={task.checked}
                         onDeleteTask={deleteTask}
+                        onTaskChanged={TaskChanged}
                     />
                 )
             })}

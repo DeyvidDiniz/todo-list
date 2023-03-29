@@ -1,3 +1,7 @@
+.container{
+    padding:1rem;
+}
+
 .inputTask{
     display:flex;
     justify-content:center;
@@ -122,3 +126,16 @@
     color:var(--gray-100);
 }
 
+
+@media(max-width:786px){
+    .inputTask{
+        margin-top:-3rem;
+    }
+    .formTask{
+        flex-direction:column;
+    }
+    .formTask button{
+        width:100%;
+        margin:10px 0 0 0;
+    }
+}
