@@ -82,6 +82,9 @@ input[type="checkbox"]:checked + span:before {
 
   transition: background-color .5s
 }
+.taskContainer label{
+  width:100%;
+}
 
 .taskContainer label p{
   margin-left:1rem;

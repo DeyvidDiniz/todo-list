@@ -3,17 +3,20 @@ import style from './Task.module.css'
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 interface TaskProps{
-    id?:number;
+    id:number;
     content:string;
     checked:boolean;
+    onDeleteTask:(task:number) => void;
 }
 
 
-export function Task({content, checked}: TaskProps){
+export function Task({id, content, checked, onDeleteTask}: TaskProps){
+
+    function HandleDeleteTask(){
+        onDeleteTask(id);
+    }
 
     
-
-   
     return(
 
         <div>
@@ -26,7 +29,7 @@ export function Task({content, checked}: TaskProps){
                         <p>{content}</p>
                     </label>
                 </div>
-                <button >
+                <button onClick={HandleDeleteTask}>
                     <Trash size={14} />
                 </button>
             </div>

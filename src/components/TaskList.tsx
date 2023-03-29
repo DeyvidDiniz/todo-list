@@ -1,4 +1,4 @@
-import { PlusCircle } from 'phosphor-react'
+import { CodesandboxLogo, PlusCircle } from 'phosphor-react'
 import { ChangeEvent, useState } from 'react'
 import { Task } from './Task'
 import style from './TaskList.module.css'
@@ -34,7 +34,7 @@ export function TaskList(){
 
     const [countTaks, setCountTasks] = useState(4);
 
-
+    const [idTaks, setIdTaks] = useState(4);
 
 
 
@@ -42,21 +42,28 @@ export function TaskList(){
         event?.preventDefault();
         
         setTasks([...tasks,{
-            id:countTaks,
+            id:idTaks,
             content:newTaskText,
             checked:false
         }] )
 
         setNewTaskText('');
-
+        setIdTaks(idTaks + 1);
         setCountTasks(countTaks + 1);
-        console.log(countTaks);
-
-
     }
 
     function handleNewTaskChange(event:ChangeEvent<HTMLInputElement>){
         setNewTaskText(event.target.value);
+    }
+
+    /*Deletar Task */
+
+    function deleteTask(taskToDelete:number){
+        const tasksWithoutDeleteOne = tasks.filter(task => {
+            return task.id != taskToDelete;
+        })
+        setTasks(tasksWithoutDeleteOne);
+        setCountTasks(countTaks - 1);
     }
 
 
@@ -102,8 +109,10 @@ export function TaskList(){
                 return(
                     <Task 
                         key={task.id}
+                        id={task.id}
                         content={task.content}
                         checked={task.checked}
+                        onDeleteTask={deleteTask}
                     />
                 )
             })}
